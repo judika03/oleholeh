@@ -1,90 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+include_once("header.php");
 
-<head>
-
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Restoran Oleholeh Sunda</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="css/modern-business.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="index.html">HOME</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="menu-lengkap-makanan.html">Menu Makanan</a>
-                            </li>
-                            <li>
-                                <a href="menu-lengkap-minuman.html">Menu Minuman</a>
-                            </li>
-                            <li>
-                                <a href="menu-lengkap-oleholeh.html">Oleholeh Khas Sunda</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Resep <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="blog-home-1.html">Blog Home 1</a>
-                            </li>
-                            <li>
-                                <a href="blog-home-2.html">Blog Home 2</a>
-                            </li>
-                            <li>
-                                <a href="blog-post.html">Blog Post</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="about.html">About</a>
-                    </li>
-                    <li>
-                        <a href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <!-- Header Carousel -->
+?>
+ <!-- Header Carousel -->
     <header id="myCarousel" class="carousel slide">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -124,10 +42,11 @@
         </a>
     </header>
 
+
     <!-- Page Content -->
-
+<div id="indexID">
     <div class="container">
-
+<input type="hidden" name="barang" id="barang">
         <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
@@ -146,7 +65,7 @@
                       <div class="text-justify">
                         <p>Menu makanan yang ada di restoran ini adalah makanan khas sunda. Ada banyak jenis makanan sunda baik makanan berat atau makanan cemilan.</p>
                       </div>
-                        <a href="menu-lengkap-makanan.html" class="btn btn-default">Menu lengkap</a>
+                        <a onclick="loadpage('menu-lengkap-makanan', '#indexID');loadpage('header', '#myCarousel', 'remove');" href="#" class="btn btn-default">Menu lengkap</a>
                     </div>
                 </div>
             </div>
@@ -162,8 +81,9 @@
 
                         <p>Minuman yang tersedia di restoran ini juga minuman khas sunda. Karena minuman-minuman tersebut merupakan minuman khas di daerah.</p>
 
-                      </div>
-                      <a href="menu-lengkap-minuman.html" class="btn btn-default">Menu lengkap</a>
+                      </div> <!--Modal Percobaan -->
+                      <a onclick="loadpage('menu-lengkap-minuman', '#indexID');loadpage('header', '#myCarousel', 'remove');" href="#" class="btn btn-default">Menu lengkap</a>
+
                     </div>
                 </div>
             </div>
@@ -178,7 +98,7 @@
                       <div class="text-justify">
                         <p>Butuh oleh-oleh atau makanan cemilan khas daerah yang jarang dijual di perkotaan. Tenang yang satu ini Anda bisa memesannya online.</p>
                       </div>
-                        <a href="menu-lengkap-oleholeh.html" class="btn btn-default">Menu lengkap</a>
+                      <a onclick="loadpage('menu-lengkap-oleholeh', '#indexID');loadpage('header', '#myCarousel', 'remove');" href="#" class="btn btn-default">Menu lengkap</a>
                     </div>
                 </div>
             </div>
@@ -242,17 +162,17 @@
                 <img class="img-responsive" src="images/oleholeh/oleholeh.png" alt="" style="width:700px;height:400px;">
             </div>
         </div>
+          </div>
         <!-- /.row -->
-
 
 
         <hr>
 
         <!-- Footer -->
         <footer>
-            <div class="row">
+            <div class="row" style="padding-left:80px;">
                 <div class="col-lg-12">
-                    <div class="text-info"><p>Copyright &copy; Restoran 'Oleholeh' Sunda 2015</p></div>
+                    <div class = "text-info"><p>Copyright &copy; Restoran 'Oleholeh' Sunda 2015</p></div>
                 </div>
             </div>
         </footer>
@@ -260,11 +180,16 @@
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+
+
+      </div>
+    </div>
+
+
+
 
     <!-- Script to Activate the Carousel -->
     <script>
