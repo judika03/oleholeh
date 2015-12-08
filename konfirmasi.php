@@ -36,10 +36,9 @@ for($i=0;$i<sizeof($isipesanan);$i++){
 $sql="select nama_makanan, harga_makanan  from tb_menu where id='$isi';";
 $result=mysqli_query($conn, $sql);
 $row=mysqli_fetch_array($result);
+//salah
 
 
-echo "<tr><td>".$row["nama_makanan"]."</td><td>".$row["harga_makanan"]."</td></tr>";
-$totalharga+=(int)$row["harga_makanan"];
 }
 echo "</table>";
 echo "<br>Total Harga : Rp.".$totalharga.",-<br>";
